@@ -39,6 +39,30 @@ export const useGameStore = defineStore('game', () =>{
 
     }
 
+    //estadisticas
+
+    const correctCount = ref(0)
+    const totalTime = ref(0)
+    let questionStart = 0;
+
+
+    const result = computed(() => {
+        if (selectedOption.value === null) return null
+        if (selectedOption.value === '') return 'timeout'
+        if (selectedOption.value === currentQuestion.value.correct) return 'correct'
+        return 'wrong'
+    })
+
+    // porcentaje aciertos
+    const accuracy = computed(() => {
+        return Math.round(correctCount.value / totalRounds.value * 100)
+    })
+
+    function addTime(){
+        totalTime.value += (Date.now() - questionStart) / 1000
+    }
+
+
 
     function startGame(name){
         username.value = name
@@ -46,6 +70,9 @@ export const useGameStore = defineStore('game', () =>{
         resetRounds()
         selectedOption.value = null
         finished.value = false
+        correctCount.value = 0
+        totalTime.value = 0
+        questionStart = Date.now()
 
         //mezclar y escoger 10
         const picked = shuffle(songs).slice(0,10)
@@ -63,10 +90,20 @@ export const useGameStore = defineStore('game', () =>{
         if (selectedOption.value !== null) return
 
         selectedOption.value = option
+        addTime()
 
         if (option === currentQuestion.value.correct){
             points.value += 10
+            correctCount.value++
         }
+    }
+
+    // si se acaba el tiempo
+    function timeUp(){
+        if (selectedOption.value !== null) return
+
+        selectedOption.value = ''
+        addTime()
     }
 
     //pasa a la siguiente pregunta, o termina el juego si era la última
@@ -81,6 +118,6 @@ export const useGameStore = defineStore('game', () =>{
     }
 
 
-    return {username, points, currentRound, totalRounds, nextRound, resetRounds, questions, selectedOption, finished, currentQuestion, startGame, answer, advance}
+    return {username, points, currentRound, totalRounds, nextRound, resetRounds, questions, selectedOption, finished, currentQuestion, startGame, answer, advance,correctCount, totalTime, result, accuracy, timeUp}
 
 })

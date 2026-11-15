@@ -1,4 +1,6 @@
 <script setup>
+import AudioPlayer from './AudioPlayer.vue';
+
 
 const props = defineProps({
   question: { type: Object, required: true },
@@ -22,11 +24,7 @@ function optionClass(option) {
 
 <template>
   <section class="question-card">
-    <div class="question-card__player">
-      <span class="question-card__icon">♫</span>
-      <p>Escuchando…</p>   <!-- aquí irá el reproductor de Howler -->
-    </div>
-
+    <AudioPlayer :file="question.file" :answered="selected !== null" />
     <h3 class="question-card__title">¿Qué canción es?</h3>
 
     <ul class="question-card__options">
