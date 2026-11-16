@@ -31,11 +31,11 @@
   --radius-pill: 0px;
   --shadow-card: 5px 5px 0px var(--ink-black);
 
-  min-height: calc(100vh - 74px);
-  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1rem, 3vw, 2.5rem);
+  min-height: calc(100vh - 60px);
+  padding: clamp(1rem, 2.5vh, 2rem) clamp(1rem, 3vw, 2.5rem);
   color: var(--ink-black);
   font-family: var(--font-sans, 'Space Grotesk', sans-serif);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .home *,
@@ -65,14 +65,14 @@
    ========================================================================== */
 .hero {
   position: relative;
-  width: min(100%, 940px);
-  margin: 0 auto clamp(3.5rem, 7vw, 5.5rem);
+  width: min(100%, 880px);
+  margin: 0 auto clamp(2rem, 3.5vh, 3.5rem);
   padding: 0;
   overflow: hidden;
   border: 3px solid var(--ink-black);
   border-radius: 0px;
   background: var(--surface-card);
-  box-shadow: 8px 8px 0px var(--ink-black);
+  box-shadow: 6px 6px 0px var(--ink-black);
 }
 
 /* Franja superior decorativa oficial */
@@ -80,29 +80,29 @@
   background: var(--ink-black);
   color: var(--bg-paper);
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: clamp(0.7rem, 1.8vw, 0.88rem);
+  font-size: clamp(0.68rem, 1.4vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-align: center;
-  padding: 0.65rem 1rem;
-  border-bottom: 3px solid var(--ink-black);
+  padding: 0.45rem 1rem;
+  border-bottom: 2.5px solid var(--ink-black);
   text-transform: uppercase;
 }
 
 /* Cuerpo del cartel con doble filete decorativo interior */
 .hero__body {
   position: relative;
-  margin: 8px;
-  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 3.5rem);
+  margin: 6px;
+  padding: clamp(1.4rem, 3vh, 2.5rem) clamp(1.25rem, 4vw, 3rem);
   border: 1.5px solid var(--ink-black);
   text-align: center;
   background: var(--surface-card);
 }
 
 .hero h1 {
-  max-width: 820px;
-  margin: 0 auto 1.5rem;
-  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  max-width: 780px;
+  margin: 0 auto clamp(0.75rem, 1.8vh, 1.25rem);
+  font-size: clamp(2rem, 4.2vw, 3.2rem);
   font-weight: 900;
   text-wrap: balance;
   color: var(--ink-black);
@@ -113,20 +113,20 @@
 .hero__tagline-wrapper {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(0.75rem, 1.8vh, 1.25rem);
 }
 
 /* Pegatina rectangular amarilla albero rotada */
 .hero__tagline {
   display: inline-block;
   margin: 0;
-  padding: 0.5rem 1.5rem;
+  padding: 0.4rem 1.35rem;
   background: var(--albero-gold);
   color: var(--ink-black);
   border: 2px solid var(--ink-black);
-  box-shadow: 3px 3px 0px var(--ink-black);
+  box-shadow: 2.5px 2.5px 0px var(--ink-black);
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: clamp(0.95rem, 2.2vw, 1.35rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -134,15 +134,15 @@
 }
 
 .hero__description {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.45rem;
   color: var(--ink-black);
   font-family: var(--font-sans, 'Space Grotesk', sans-serif);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   font-weight: 600;
 }
 
 .hero__question {
-  margin-bottom: 2.25rem;
+  margin-bottom: clamp(1rem, 2.2vh, 1.6rem);
   color: #55504A;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 1rem;

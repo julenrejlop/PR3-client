@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
   <div class="audio-player" :class="{ 'audio-player--playing': !answered }">
     <div class="audio-player__turntable">
       <div class="audio-player__disc">
-        <!-- Galleta central del vinilo de 7 pulgadas -->
+        <!-- vinilo -->
         <div class="audio-player__label">
           <span class="audio-player__center-hole"></span>
           <span class="audio-player__icon">♫</span>
@@ -63,24 +63,24 @@ onBeforeUnmount(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.1rem;
-  margin-bottom: 0.75rem;
+  gap: 0.55rem;
+  margin-bottom: 0.35rem;
 }
 
 .audio-player__turntable {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px;
+  padding: 2px;
 }
 
 /* Vinilo de 7 pulgadas (Single Español) - Perfectamente redondo sin sombras excéntricas que dupliquen el disco */
 .audio-player__disc {
   position: relative;
-  width: 144px;
-  height: 144px;
-  min-width: 144px;
-  min-height: 144px;
+  width: 116px;
+  height: 116px;
+  min-width: 116px;
+  min-height: 116px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,8 +101,8 @@ onBeforeUnmount(() => {
 /* Galleta central clásica española de discográfica */
 .audio-player__label {
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 48px;
+  height: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,13 +112,13 @@ onBeforeUnmount(() => {
   border: 2px solid var(--ink-black, #141210);
   color: #FFFFFF;
   outline: 2px solid var(--albero-gold, #F2A900);
-  outline-offset: -5px;
+  outline-offset: -4px;
 }
 
 .audio-player__center-hole {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--bg-paper, #F6F2EA);
   border: 1.5px solid var(--ink-black, #141210);
@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
 }
 
 .audio-player__icon {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 1;
   color: #FFFDF9;
   z-index: 1;
@@ -134,7 +134,7 @@ onBeforeUnmount(() => {
 
 .audio-player__rpm {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 6.5px;
+  font-size: 6px;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--albero-gold, #F2A900);

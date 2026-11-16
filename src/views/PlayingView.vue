@@ -68,15 +68,15 @@ onBeforeUnmount(() => clearTimeout(timer))
 
 <style scoped>
 .playing-view {
-  min-height: calc(100vh - 74px);
-  padding: clamp(1.5rem, 4vw, 3rem) 1rem 4rem;
+  min-height: calc(100vh - 60px);
+  padding: clamp(0.4rem, 1.2vh, 1rem) 1rem 1rem;
   background-color: var(--bg-paper, #F6F2EA);
   background-image: radial-gradient(var(--ink-black, #141210) 0.75px, transparent 0.75px);
   background-size: 24px 24px;
 }
 
 .playing-container {
-  width: min(100%, 720px);
+  width: min(100%, 660px);
   margin: 0 auto;
 }
 
@@ -85,8 +85,8 @@ onBeforeUnmount(() => clearTimeout(timer))
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.85rem;
-  margin: 0 auto 0.75rem;
+  gap: 0.6rem;
+  margin: 0 auto 0.45rem;
 }
 
 @media (max-width: 600px) {

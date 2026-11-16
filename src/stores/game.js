@@ -5,6 +5,7 @@
 import { defineStore } from "pinia";
 import { ref, computed } from "vue";
 import { songs } from "@/data/songs";
+import { useRankingStore } from "./ranking";
 
 
 export const useGameStore = defineStore('game', () =>{
@@ -48,6 +49,11 @@ export const useGameStore = defineStore('game', () =>{
     //cambiar color barra tareas segun acierto o fallo
     const roundResults = ref([])
 
+    //ranking
+    const ranking = useRankingStore()
+    const lastScoreId = ref(null)
+    const position = ref(0)
+
 
     const result = computed(() => {
         if (selectedOption.value === null) return null
@@ -76,6 +82,7 @@ export const useGameStore = defineStore('game', () =>{
         correctCount.value = 0
         totalTime.value = 0
         questionStart = Date.now()
+        lastScoreId.value = null
 
         //cambiar color barra tareas segun acierto o fallo
         roundResults.value = []
@@ -127,10 +134,23 @@ export const useGameStore = defineStore('game', () =>{
             nextRound()
         } else {
             finished.value = true
+            const id = Date.now()
+            ranking.addScore({
+                id: id,
+                name: username.value,
+                points: points.value,
+                accuracy: accuracy.value,
+                time: totalTime.value
+            })
+
+            lastScoreId.value = id
+            //buscar posicion
+            position.value = ranking.scores.findIndex(score => score.id === id) + 1
+
         }
     }
 
 
-    return {username, points, currentRound, totalRounds, nextRound, resetRounds, questions, selectedOption, finished, currentQuestion, startGame, answer, advance,correctCount, totalTime, result, accuracy, timeUp, roundResults}
+    return {username, points, currentRound, totalRounds, nextRound, resetRounds, questions, selectedOption, finished, currentQuestion, startGame, answer, advance,correctCount, totalTime, result, accuracy, timeUp, roundResults, lastScoreId, position}
 
 })

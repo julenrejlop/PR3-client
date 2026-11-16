@@ -1,12 +1,20 @@
 <script setup>
 import BaseButton from '@/components/BaseButton.vue';
+import { useRankingStore } from '@/stores/ranking'
+import { useGameStore } from '@/stores/game'
+
+const ranking = useRankingStore()
+const gameStore = useGameStore()
 </script>
+
+
+
 
 <template>
   <main class="ranking-view">
     <div class="ranking-container">
       <div class="ranking-header">
-        <span class="ranking-badge">🏆</span>
+        <span class="ranking-badge"></span>
         <h1>Ranking</h1>
         <p class="ranking-subtitle">Clasificación de los mejores oídos musicales</p>
       </div>
@@ -16,15 +24,45 @@ import BaseButton from '@/components/BaseButton.vue';
           ★ CUADRO DE HONOR NACIONAL • EDICIÓN OFICIAL ★
         </div>
 
-        <div class="ranking-card__inner">
-          <div class="ranking-empty">
+                <div class="ranking-card__inner">
+          <!-- si no hay puntuaciones -->
+          <div v-if="ranking.scores.length === 0" class="ranking-empty">
             <span class="ranking-empty__icon">♫</span>
-            <h3>Tabla en preparación</h3>
-            <p>Muy pronto podrás registrar tus mejores puntuaciones y competir con los grandes conocedores del repertorio nacional.</p>
+            <h3>Todavía no hay puntuaciones</h3>
+            <p>¡Sé el primero en jugar y entra en el cuadro de honor!</p>
+            <BaseButton class="btn btn--primary" text="JUGAR" to="/Game" />
           </div>
 
-          <div class="ranking-actions">
-            <BaseButton text="Saludar" />
+          <!-- si hay puntuaciones -->
+          <div v-else>
+            <table class="ranking-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Jugador</th>
+                  <th>Puntos</th>
+                  <th>Precisión</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- solo las 10 primeras -->
+                <tr
+                  v-for="(score, i) in ranking.scores.slice(0, 10)"
+                  :key="score.id"
+                  :class="{ 'ranking-table__me': score.id === gameStore.lastScoreId }"
+                >
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ score.name }}</td>
+                  <td>{{ score.points }}</td>
+                  <td>{{ score.accuracy }}%</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- si no ha entrado en el top 10 -->
+            <p v-if="gameStore.position > 10" class="ranking-message">
+              Has quedado en la posición {{ gameStore.position }}. ¡Tienes que hacerlo mejor para entrar entre los diez mejores!
+            </p>
           </div>
         </div>
       </section>
@@ -161,6 +199,29 @@ import BaseButton from '@/components/BaseButton.vue';
   display: flex;
   justify-content: center;
 }
+
+.ranking-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+.ranking-table th,
+.ranking-table td {
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--ink-black, #141210);
+}
+.ranking-table__me {
+  background: var(--albero-gold, #F2A900);
+  font-weight: 700;
+}
+.ranking-message {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+
 
 @media (max-width: 580px) {
   .ranking-card__inner {

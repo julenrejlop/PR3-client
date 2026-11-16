@@ -15,12 +15,12 @@ defineProps({
 .points-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1.1rem;
+  gap: 0.45rem;
+  padding: 0.35rem 0.95rem;
   background: var(--surface-card, #FFFDF9);
   border: 2px solid var(--ink-black, #141210);
   border-radius: 0px;
-  box-shadow: 3px 3px 0px var(--ink-black, #141210);
+  box-shadow: 2.5px 2.5px 0px var(--ink-black, #141210);
 }
 
 .points-badge__icon {

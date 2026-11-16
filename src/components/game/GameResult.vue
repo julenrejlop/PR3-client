@@ -28,7 +28,6 @@ function playAgain() {
 
     <div class="game-result__inner">
       <div class="game-result__badge">
-        <span>🏆</span>
       </div>
 
       <h2>Fin del juego, {{ gameStore.username }}</h2>
@@ -57,6 +56,10 @@ function playAgain() {
           <strong class="stat-card__value">{{ gameStore.totalTime.toFixed(1) }} s</strong>
         </li>
       </ul>
+
+      <p class="game-result__position">
+        Has quedado en la posición <strong>{{ gameStore.position }}</strong>
+      </p>
 
       <div class="game-result__actions">
         <BaseButton class="btn btn--primary" text="VOLVER A JUGAR" @click="playAgain" />

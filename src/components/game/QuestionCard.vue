@@ -45,28 +45,28 @@ function optionClass(option) {
 <style scoped>
 .question-card {
   width: 100%;
-  max-width: 660px;
-  margin: 1.5rem auto;
+  max-width: 640px;
+  margin: 0.4rem auto 0.6rem;
   padding: 0;
   background: var(--surface-card, #FFFDF9);
   border: 3px solid var(--ink-black, #141210);
   border-radius: 0px;
-  box-shadow: 8px 8px 0px var(--ink-black, #141210);
+  box-shadow: 6px 6px 0px var(--ink-black, #141210);
   overflow: hidden;
 }
 
 .question-card__inner {
-  margin: 8px;
-  padding: clamp(1.75rem, 5vw, 2.5rem) clamp(1.2rem, 4vw, 2.25rem);
+  margin: 5px;
+  padding: 0.85rem 1.35rem 1.1rem;
   border: 1.5px solid var(--ink-black, #141210);
   background: var(--surface-card, #FFFDF9);
 }
 
 .question-card__title {
-  margin: 1.25rem 0 1.75rem;
+  margin: 0.5rem 0 0.85rem;
   text-align: center;
   font-family: var(--font-display, 'Fraunces', serif);
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-size: clamp(1.25rem, 2vw, 1.45rem);
   font-weight: 900;
   letter-spacing: -0.025em;
   color: var(--ink-black, #141210);
@@ -76,7 +76,7 @@ function optionClass(option) {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.1rem;
+  gap: 0.75rem;
   padding: 0;
   margin: 0;
 }
@@ -84,7 +84,7 @@ function optionClass(option) {
 /* Botón rectangular brutalista */
 .option {
   width: 100%;
-  min-height: 3.75rem;
+  min-height: 3.15rem;
   display: flex;
   align-items: stretch;
   padding: 0;
@@ -95,7 +95,7 @@ function optionClass(option) {
   border: 2px solid var(--ink-black, #141210);
   border-radius: 0px;
   cursor: pointer;
-  box-shadow: 4px 4px 0px var(--ink-black, #141210);
+  box-shadow: 3.5px 3.5px 0px var(--ink-black, #141210);
   transition:
     transform 140ms ease,
     background-color 140ms ease,
@@ -107,12 +107,12 @@ function optionClass(option) {
 .option:hover:not(:disabled) {
   background: #FFF8DF;
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--ink-black, #141210);
+  box-shadow: 5px 5px 0px var(--ink-black, #141210);
 }
 
 .option:active:not(:disabled) {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px var(--ink-black, #141210);
+  box-shadow: 1.5px 1.5px 0px var(--ink-black, #141210);
 }
 
 .option:disabled {
@@ -122,7 +122,7 @@ function optionClass(option) {
 /* Recuadro cuadrado a la izquierda con letra en negrita */
 .option__letter {
   flex-shrink: 0;
-  width: 48px;
+  width: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,16 +131,16 @@ function optionClass(option) {
   background: var(--albero-gold, #F2A900);
   color: var(--ink-black, #141210);
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 800;
   transition: background-color 140ms, color 140ms;
 }
 
 .option__text {
   flex: 1;
-  padding: 0.85rem 1rem;
+  padding: 0.55rem 0.85rem;
   font-family: var(--font-sans, 'Space Grotesk', sans-serif);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
   line-height: 1.35;
   display: flex;

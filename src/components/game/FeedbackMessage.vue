@@ -14,18 +14,18 @@ defineProps({
 
 <style scoped>
 .feedback {
-  min-height: 3.5rem;
-  margin: 1.25rem auto;
-  max-width: 660px;
+  min-height: 2.5rem;
+  margin: 0.45rem auto 0;
+  max-width: 640px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.65rem 1.25rem;
+  padding: 0.45rem 1.25rem;
   border-radius: 0px;
   text-align: center;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-weight: 800;
-  font-size: 0.98rem;
+  font-size: 0.92rem;
   letter-spacing: 0.03em;
   transition: transform 160ms ease, opacity 160ms ease;
 }

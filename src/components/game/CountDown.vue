@@ -44,23 +44,23 @@ onBeforeUnmount(() => clearInterval(interval))
 .countdown-wrapper {
   display: flex;
   justify-content: center;
-  margin: 0.5rem 0 1.25rem;
+  margin: 0.35rem 0 0.5rem;
 }
 
 .countdown {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.5rem 1.5rem;
+  gap: 0.55rem;
+  padding: 0.35rem 1.25rem;
   background: var(--ink-black, #141210);
   border: 2px solid var(--ink-black, #141210);
   border-radius: 0px;
   color: var(--albero-gold, #F2A900);
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: 0.06em;
-  box-shadow: 4px 4px 0px var(--ink-black, #141210);
+  box-shadow: 3px 3px 0px var(--ink-black, #141210);
   transition: background-color 160ms ease, color 160ms ease;
 }
 

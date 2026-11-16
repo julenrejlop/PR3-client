@@ -6,12 +6,12 @@
 .game-title {
   text-align: center;
   font-family: var(--font-display, 'Fraunces', serif);
-  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   color: var(--ink-black, #141210);
-  margin: 0 auto 1.25rem;
-  max-width: 680px;
+  margin: 0 auto 0.45rem;
+  max-width: 640px;
   line-height: 1.15;
 }
 

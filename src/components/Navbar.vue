@@ -123,13 +123,14 @@ body {
 <style scoped>
 .navbar {
   width: 100%;
-  min-height: 74px;
+  min-height: 60px;
+  height: 60px;
   background: var(--surface-card);
   border-bottom: 3px solid var(--ink-black);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 2.5rem;
+  padding: 0.4rem 2rem;
   position: relative;
   color: var(--ink-black);
   font-family: var(--font-sans);
@@ -147,20 +148,20 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   background: var(--vermut-red);
   color: #FFFFFF;
   border: 2px solid var(--ink-black);
   box-shadow: 2px 2px 0px var(--ink-black);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   line-height: 1;
 }
 
 .logo__text {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 900;
   letter-spacing: -0.03em;
   color: var(--ink-black);
@@ -169,13 +170,13 @@ body {
 
 .logo__tag {
   display: inline-block;
-  padding: 2px 7px;
+  padding: 2px 6px;
   background: var(--albero-gold);
   color: var(--ink-black);
   border: 1.5px solid var(--ink-black);
   box-shadow: 1.5px 1.5px 0px var(--ink-black);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -185,7 +186,7 @@ body {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .nav-item {
@@ -193,12 +194,12 @@ body {
   text-decoration: none;
   color: var(--ink-black);
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  padding: 8px 18px;
+  padding: 6px 15px;
   background: var(--surface-card);
   border: 2px solid var(--ink-black);
-  box-shadow: 3px 3px 0px var(--ink-black);
+  box-shadow: 2.5px 2.5px 0px var(--ink-black);
   transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
   letter-spacing: 0.02em;
 }
@@ -206,7 +207,7 @@ body {
 .nav-item:hover:not(.play) {
   background: #FFF5D6;
   transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0px var(--ink-black);
+  box-shadow: 3.5px 3.5px 0px var(--ink-black);
 }
 
 .nav-item:active:not(.play) {
@@ -219,21 +220,21 @@ body {
   background: var(--albero-gold);
   color: var(--ink-black);
   transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0px var(--ink-black);
+  box-shadow: 1.5px 1.5px 0px var(--ink-black);
 }
 
 /* Botón jugar: CTA rectangular brutalista */
 .play {
   background: var(--vermut-red);
   color: #FFFFFF;
-  padding: 9px 20px;
+  padding: 7px 18px;
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border: 2px solid var(--ink-black);
-  box-shadow: 3px 3px 0px var(--ink-black);
+  box-shadow: 2.5px 2.5px 0px var(--ink-black);
   transition: transform 140ms ease, background-color 140ms ease, box-shadow 140ms ease, color 140ms ease;
 }
 

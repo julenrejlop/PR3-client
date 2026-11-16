@@ -28,14 +28,14 @@ const gameStore = useGameStore();
 .progress-bar-container {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
-  width: min(100%, 620px);
-  margin: 1.25rem auto 1.5rem;
+  gap: 6px;
+  width: min(100%, 540px);
+  margin: 0.4rem auto 0.45rem;
 }
 
 .progress-step {
   flex: 1;
-  height: 28px;
+  height: 22px;
   background-color: #FFFDF9;
   border: 2px solid var(--ink-black, #141210);
   border-radius: 0px;
