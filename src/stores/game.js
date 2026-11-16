@@ -45,6 +45,9 @@ export const useGameStore = defineStore('game', () =>{
     const totalTime = ref(0)
     let questionStart = 0;
 
+    //cambiar color barra tareas segun acierto o fallo
+    const roundResults = ref([])
+
 
     const result = computed(() => {
         if (selectedOption.value === null) return null
@@ -74,6 +77,9 @@ export const useGameStore = defineStore('game', () =>{
         totalTime.value = 0
         questionStart = Date.now()
 
+        //cambiar color barra tareas segun acierto o fallo
+        roundResults.value = []
+
         //mezclar y escoger 10
         const picked = shuffle(songs).slice(0,10)
 
@@ -92,6 +98,9 @@ export const useGameStore = defineStore('game', () =>{
         selectedOption.value = option
         addTime()
 
+        //cambiar color barra tareas segun acierto o fallo
+        roundResults.value[currentRound.value - 1] = (option === currentQuestion.value.correct) ? 'correct' : 'wrong'
+
         if (option === currentQuestion.value.correct){
             points.value += 10
             correctCount.value++
@@ -104,11 +113,15 @@ export const useGameStore = defineStore('game', () =>{
 
         selectedOption.value = ''
         addTime()
+
+        //cambiar color barra tareas segun acierto o fallo
+        roundResults.value[currentRound.value - 1] = 'wrong'
     }
 
     //pasa a la siguiente pregunta, o termina el juego si era la última
     function advance(){
         selectedOption.value = null
+        questionStart = Date.now() // empeza a contar en la nueva pregunta
 
         if (currentRound.value < totalRounds.value){
             nextRound()
@@ -118,6 +131,6 @@ export const useGameStore = defineStore('game', () =>{
     }
 
 
-    return {username, points, currentRound, totalRounds, nextRound, resetRounds, questions, selectedOption, finished, currentQuestion, startGame, answer, advance,correctCount, totalTime, result, accuracy, timeUp}
+    return {username, points, currentRound, totalRounds, nextRound, resetRounds, questions, selectedOption, finished, currentQuestion, startGame, answer, advance,correctCount, totalTime, result, accuracy, timeUp, roundResults}
 
 })

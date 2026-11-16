@@ -1,8 +1,9 @@
-
 <template>
   <nav class="navbar">
     <div class="logo">
-      <span>Oído-Musical</span>
+      <span class="logo__stamp">♫</span>
+      <span class="logo__text">Oído-Musical</span>
+      <span class="logo__tag">EDICIÓN ESPAÑA</span>
     </div>
 
     <div class="nav-links">
@@ -11,7 +12,7 @@
       </router-link>
 
       <router-link to="/Game" class="nav-item play">
-        ▶ Jugar
+        ▶ JUGAR
       </router-link>
 
       <router-link to="/Ranking" class="nav-item">
@@ -24,29 +25,60 @@
 <script setup>
 </script>
 
-<!-- Estilos globales: tipografías, variables de la paleta y reset -->
+<!-- Estilos globales: tipografías, variables de la paleta Neo-Brutalismo Ibérico y reset -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700..900;1,9..144,700..900&family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap');
 
 :root {
-  /* Paleta de marca */
-  --color-bg: #121820;
-  --color-surface: #263746;
-  --color-accent: #B68D40;
-  --color-secondary: #A7B5A4;
-  --color-text: #F3F0E8;
+  /* Paleta Neo-Brutalismo Ibérico ("Sol, Vinilo y Vermut") */
+  --bg-paper: #F6F2EA;
+  --surface-card: #FFFDF9;
+  --ink-black: #141210;
+  --vermut-red: #D92B2B;
+  --albero-gold: #F2A900;
+  --azulejo-blue: #1D4ED8;
+  --verde-oliva-neon: #A3E635;
 
-  /* Roles de interfaz */
-  --color-text-muted: #A7B5A4;
-  --color-border: #263746;
-  --color-button-primary-bg: #B68D40;
-  --color-button-primary-text: #121820;
-  --color-button-secondary-bg: #263746;
-  --color-button-secondary-text: #F3F0E8;
+  /* Tipografías */
+  --font-display: 'Fraunces', 'Syne', Georgia, serif;
+  --font-sans: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: var(--font-sans);
+  --font-mono: 'JetBrains Mono', monospace;
 
-  /* Tipografía */
-  --font-display: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
-  --font-body: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Compatibilidad y roles */
+  --color-bg: var(--bg-paper);
+  --color-surface: var(--surface-card);
+  --color-surface-alt: #EFE8DC;
+  --color-primary: var(--vermut-red);
+  --color-primary-dark: var(--ink-black);
+  --color-primary-soft: #E24848;
+  --color-accent: var(--albero-gold);
+  --color-accent-soft: #FCD269;
+  --color-text: var(--ink-black);
+  --color-text-muted: #57524A;
+  --color-border: var(--ink-black);
+  --color-success: var(--verde-oliva-neon);
+  --color-error: var(--vermut-red);
+
+  --color-button-primary-bg: var(--vermut-red);
+  --color-button-primary-text: #FFFFFF;
+
+  /* Estricto Anti-IA: CERO bordes píldora, esquinas rectas o micro-redondeadas (0px - 2px) */
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-pill: 0px;
+  --radius-card: 0px;
+  --radius-control: 0px;
+
+  /* Sombras duras serigráficas */
+  --shadow-solid-sm: 3px 3px 0px var(--ink-black);
+  --shadow-solid-md: 5px 5px 0px var(--ink-black);
+  --shadow-solid-lg: 8px 8px 0px var(--ink-black);
+  --shadow-solid-hover: 2px 2px 0px var(--ink-black);
+
+  --shadow-card: var(--shadow-solid-md);
+  --shadow-button: var(--shadow-solid-sm);
 }
 
 * {
@@ -63,16 +95,18 @@ body,
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
+  background-color: #F6F2EA;
+  background-image: radial-gradient(#141210 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+  color: var(--ink-black);
+  font-family: var(--font-sans);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Foco visible para navegación con teclado */
+/* Foco accesible brutalista */
 :focus-visible {
-  outline: 3px solid var(--color-text);
+  outline: 3px solid var(--ink-black);
   outline-offset: 3px;
 }
 
@@ -89,124 +123,183 @@ body {
 <style scoped>
 .navbar {
   width: 100%;
-  height: 72px;
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-
+  min-height: 74px;
+  background: var(--surface-card);
+  border-bottom: 3px solid var(--ink-black);
   display: flex;
   align-items: center;
-  justify-content: center;
-
+  justify-content: space-between;
+  padding: 0.75rem 2.5rem;
   position: relative;
-  color: var(--color-text);
-  font-family: var(--font-body);
+  color: var(--ink-black);
+  font-family: var(--font-sans);
+  z-index: 50;
 }
 
 /* Logo a la izquierda */
 .logo {
-  position: absolute;
-  left: 40px;
-
   display: flex;
   align-items: center;
   gap: 10px;
-
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--color-text);
 }
 
-.logo::before {
-  content: '♪';
-  color: var(--color-accent);
-  font-size: 26px;
+.logo__stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--vermut-red);
+  color: #FFFFFF;
+  border: 2px solid var(--ink-black);
+  box-shadow: 2px 2px 0px var(--ink-black);
+  font-size: 1.15rem;
+  font-weight: 800;
   line-height: 1;
 }
 
-/* Enlaces centrados */
+.logo__text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--ink-black);
+  line-height: 1;
+}
+
+.logo__tag {
+  display: inline-block;
+  padding: 2px 7px;
+  background: var(--albero-gold);
+  color: var(--ink-black);
+  border: 1.5px solid var(--ink-black);
+  box-shadow: 1.5px 1.5px 0px var(--ink-black);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Enlaces estilo pestañas / cartel */
 .nav-links {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 40px;
+  gap: 12px;
 }
 
 .nav-item {
   position: relative;
   text-decoration: none;
-  color: var(--color-secondary);
-  font-size: 16px;
-  font-weight: 600;
-  padding: 6px 0;
-  transition: color 0.2s ease;
-}
-
-.nav-item:hover {
-  color: var(--color-text);
-}
-
-/* Página activa: subrayado fino dorado */
-.nav-item.router-link-exact-active:not(.play) {
-  color: var(--color-text);
-}
-
-.nav-item.router-link-exact-active:not(.play)::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -2px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 2px;
-}
-
-/* Botón jugar: CTA principal */
-.play {
-  background: var(--color-button-primary-bg);
-  color: var(--color-button-primary-text);
-  padding: 11px 24px;
-  border-radius: 8px;
+  color: var(--ink-black);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
   font-weight: 700;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  padding: 8px 18px;
+  background: var(--surface-card);
+  border: 2px solid var(--ink-black);
+  box-shadow: 3px 3px 0px var(--ink-black);
+  transition: transform 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+  letter-spacing: 0.02em;
+}
+
+.nav-item:hover:not(.play) {
+  background: #FFF5D6;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--ink-black);
+}
+
+.nav-item:active:not(.play) {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--ink-black);
+}
+
+/* Pestaña activa */
+.nav-item.router-link-exact-active:not(.play) {
+  background: var(--albero-gold);
+  color: var(--ink-black);
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0px var(--ink-black);
+}
+
+/* Botón jugar: CTA rectangular brutalista */
+.play {
+  background: var(--vermut-red);
+  color: #FFFFFF;
+  padding: 9px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid var(--ink-black);
+  box-shadow: 3px 3px 0px var(--ink-black);
+  transition: transform 140ms ease, background-color 140ms ease, box-shadow 140ms ease, color 140ms ease;
 }
 
 .play:hover {
-  color: var(--color-button-primary-text);
-  filter: brightness(1.1);
-  transform: translateY(-2px);
+  background: var(--albero-gold);
+  color: var(--ink-black);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--ink-black);
+}
+
+.play:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px var(--ink-black);
 }
 
 /* Responsive */
 @media (max-width: 600px) {
   .navbar {
-    height: 64px;
+    min-height: 52px;
+    padding: 0.35rem 0.65rem;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    padding: 0 16px;
   }
 
   .logo {
-    position: static;
-    font-size: 17px;
-    gap: 6px;
+    gap: 5px;
   }
 
-  .logo::before {
-    font-size: 19px;
+  .logo__text {
+    font-size: 1.15rem;
+  }
+
+  .logo__stamp {
+    width: 24px;
+    height: 24px;
+    font-size: 0.85rem;
+  }
+
+  .logo__tag {
+    display: none;
   }
 
   .nav-links {
-    gap: 14px;
+    gap: 6px;
   }
 
   .nav-item {
-    font-size: 13px;
+    font-size: 0.78rem;
+    padding: 5px 8px;
+    box-shadow: 2px 2px 0px var(--ink-black);
   }
 
   .play {
-    padding: 8px 12px;
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    box-shadow: 2px 2px 0px var(--ink-black);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .navbar {
+    min-height: 64px;
+    padding: 0.6rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
   }
 }
 </style>
